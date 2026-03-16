@@ -1,6 +1,6 @@
 services:
   presentation-web:
-    build: .
+    image: ghcr.io/drjakeberg/ppttohtml:main
     container_name: presentation-web
     ports:
       - "3000:3000"
