@@ -1,20 +1,20 @@
-# Projektplan
+# Project Plan
 
-## Ziel
-Eine produktionsnahe Docker-App für Präsentationsanzeige mit Token-geschütztem Adminbereich.
+## Goal
+Production-ready Docker app for presentation display with token-protected admin panel.
 
-## Lieferumfang
+## Scope
 - Upload: `pdf/ppt/pptx`
-- Konvertierung nach PDF
-- Viewer: Fullscreen + Swipe + Navigation
-- Autoplay konfigurierbar (inkl. deaktivierbar)
-- Endlosschleife am Präsentationsende
-- Docker + Compose + Persistenz
-- Tests + CI + Registry-Skripte
+- Conversion to PDF
+- Viewer: fullscreen + swipe + manual navigation
+- Configurable autoplay (including disabled mode)
+- End-of-deck loop behavior
+- Docker + Compose + persistent storage
+- Tests + CI + registry scripts
 
-## Nächste Ausbaustufen
-1. Benutzerverwaltung statt Single-Token
-2. Mehrere Präsentationen mit Playlist
-3. Zeitgesteuerte Pläne (Tagesprofile)
-4. Optionaler Kiosk-Modus im Browser/OS
-5. Monitoring/Observability (Prometheus Logs/Metrics)
+## Next Iterations
+1. User accounts instead of single token
+2. Multiple presentations with playlist support
+3. Scheduled playback profiles
+4. Optional kiosk mode (browser/OS level)
+5. Monitoring/observability (logs + metrics)

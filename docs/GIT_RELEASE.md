@@ -1,4 +1,4 @@
-# Git & Release Ablauf
+# Git & Release Workflow
 
 ## Initial Commit
 
@@ -7,10 +7,10 @@ git add .
 git commit -m "feat: initial presentation kiosk implementation"
 ```
 
-## Remote setzen
+## Add Remote
 
 ```bash
-git remote add origin <dein-repo-url>
+git remote add origin <your-repo-url>
 ```
 
 ## Push

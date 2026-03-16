@@ -1,65 +1,65 @@
 # ppttohtml / Presentation Kiosk
 
-Dockerisierte Web-Anwendung für Präsentationen mit:
-- Viewer unter `/` (Fullscreen-Button, Wischen, Blättern)
-- Adminbereich unter `/admin` (Token-geschützt für API-Aktionen)
-- Upload von `pdf`, `ppt`, `pptx`
-- Konvertierung von `ppt/pptx -> pdf` via LibreOffice
-- Optionales Autoplay (x Sekunden), Endlosschleife
+Dockerized web application for presentation display with:
+- Viewer at `/` (fullscreen button, swipe, manual navigation)
+- Admin panel at `/admin` (token-protected API actions)
+- Upload support for `pdf`, `ppt`, `pptx`
+- `ppt/pptx -> pdf` conversion via LibreOffice
+- Optional autoplay (x seconds), loop enabled
 
-## Schnellstart mit Docker Compose
+## Quick Start with Docker Compose
 
-1. Token setzen:
+1. Set token:
 
 ```bash
-export ADMIN_TOKEN='dein-sehr-starker-token'
+export ADMIN_TOKEN='your-strong-token'
 ```
 
-2. Starten:
+2. Start:
 
 ```bash
 docker compose up -d --build
 ```
 
-3. Öffnen:
+3. Open:
 - Viewer: `http://localhost:3000/`
 - Admin: `http://localhost:3000/admin`
 
-## Bedienung
+## Usage
 
 ### Viewer
-- `Vollbild`-Button direkt oben sichtbar
-- `Zurück` / `Weiter` Buttons
-- Tastatur: `Pfeil links/rechts`, `PageUp/PageDown`
-- Touch: horizontal wischen für Seitenwechsel
-- Wenn Autoplay aktiv ist: nach `x` Sekunden nächste Seite
-- Nach letzter Seite: Start bei Seite 1
+- `Fullscreen` button is visible immediately
+- `Back` / `Next` buttons
+- Keyboard: `Arrow left/right`, `PageUp/PageDown`
+- Touch: horizontal swipe to change slides
+- If autoplay is enabled: advances after `x` seconds
+- After last slide: loops back to slide 1
 
 ### Admin
-1. Token eintragen
-2. Datei (`pdf/ppt/pptx`) auswählen und hochladen
-3. Autoplay aktivieren/deaktivieren
-4. Sekundenintervall speichern
+1. Enter token
+2. Select and upload file (`pdf/ppt/pptx`)
+3. Enable/disable autoplay
+4. Save autoplay interval (seconds)
 
-## Konfiguration
+## Configuration
 
-Wichtige ENV-Variablen:
-- `ADMIN_TOKEN` (Pflicht für Produktion)
-- `PORT` (Default `3000`)
-- `DATA_DIR` (Default in Docker: `/app/data`)
-- `UPLOAD_DIR` (Default in Docker: `/app/uploads`)
-- `CONVERTED_DIR` (Default in Docker: `/app/converted`)
+Important environment variables:
+- `ADMIN_TOKEN` (required for production)
+- `PORT` (default `3000`)
+- `DATA_DIR` (Docker default: `/app/data`)
+- `UPLOAD_DIR` (Docker default: `/app/uploads`)
+- `CONVERTED_DIR` (Docker default: `/app/converted`)
 
-## Persistenz
+## Persistence
 
-In `docker-compose.yml` sind Volumes hinterlegt:
+`docker-compose.yml` defines persistent volumes:
 - `presentation_data`
 - `presentation_uploads`
 - `presentation_converted`
 
-## Entwicklung
+## Development
 
-Lokale Scripts:
+Local scripts:
 ```bash
 npm install
 npm run dev
@@ -67,28 +67,28 @@ npm test
 npm run lint
 ```
 
-## Registry-Skripte
+## Registry Scripts
 
-- Lokale Docker-Registry starten:
+- Start local Docker registry:
 ```bash
 ./scripts/create-local-registry.sh
 ```
 
-- Image bauen und pushen:
+- Build and push image:
 ```bash
 REGISTRY=ghcr.io IMAGE_NAME=<user>/<repo> TAG=latest ./scripts/publish-image.sh
 ```
 
 ## CI
 
-GitHub Actions Workflow: `.github/workflows/ci.yml`
+GitHub Actions workflow: `.github/workflows/ci.yml`
 - `npm ci`
 - `npm run lint`
 - `npm test`
 
-## Wichtige Hinweise Produktion
+## Production Notes
 
-- `ADMIN_TOKEN` niemals auf Default lassen
-- Reverse Proxy + TLS (z. B. Traefik/Nginx) davor setzen
-- Regelmäßige Image-Updates und Security-Scans
-- Optional: Rate-Limit und Basic-IP-Whitelist für `/admin`
+- Never keep `ADMIN_TOKEN` at default value
+- Put a reverse proxy + TLS in front (e.g. Traefik/Nginx)
+- Regularly update images and run security scans
+- Optional: add rate limiting and IP allowlist for `/admin`

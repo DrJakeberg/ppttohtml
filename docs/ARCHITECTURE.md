@@ -1,23 +1,23 @@
-# Architektur
+# Architecture
 
-## Komponenten
+## Components
 
 - `src/server.js`
-  - Startpunkt, startet Express-Server
+  - Entry point, starts the Express server
 - `src/app.js`
-  - Routen, Upload-API, Settings-API, statische Frontends
+  - Routes, upload API, settings API, static frontend delivery
 - `src/config.js`
-  - State-Handling (`state.json`), Verzeichnisverwaltung, Token
+  - State handling (`state.json`), directory management, token access
 - `src/converter.js`
-  - Validierung und Konvertierung mit LibreOffice
+  - File validation and LibreOffice conversion
 - `src/public/viewer.*`
-  - Viewer-Frontend mit pdf.js, Touch und Autoplay
+  - Viewer frontend with pdf.js, touch support, autoplay
 - `src/public/admin.*`
-  - Admin-Frontend für Upload + Einstellungen
+  - Admin frontend for upload + settings
 
-## State-Modell
+## State Model
 
-Datei: `state.json`
+File: `state.json`
 
 ```json
 {
@@ -33,18 +33,18 @@ Datei: `state.json`
 }
 ```
 
-## Upload-Flow
+## Upload Flow
 
-1. Datei über `/api/admin/upload` senden
-2. Token-Prüfung über Header `x-admin-token`
-3. Endung validieren (`pdf|ppt|pptx`)
-4. Bei `ppt|pptx` Konvertierung via `soffice --headless`
-5. State auf neue Präsentation setzen
+1. Upload file through `/api/admin/upload`
+2. Validate token from `x-admin-token` header
+3. Validate extension (`pdf|ppt|pptx`)
+4. Convert (`ppt|pptx`) via `soffice --headless`
+5. Update state to new presentation
 
-## Viewer-Flow
+## Viewer Flow
 
-1. `/api/presentation` lesen
-2. PDF unter `/presentation/current.pdf` laden
-3. Seiten rendern (pdf.js)
-4. Interaktionen: Buttons, Tastatur, Touch
-5. Optionaler Timer für Autoplay
+1. Read `/api/presentation`
+2. Load PDF from `/presentation/current.pdf`
+3. Render pages with pdf.js
+4. Handle interactions: buttons, keyboard, touch
+5. Run optional autoplay timer
