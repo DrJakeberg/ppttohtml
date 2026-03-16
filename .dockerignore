@@ -1,0 +1,13 @@
+node_modules
+.git
+.gitignore
+coverage
+.env
+data
+src/uploads
+src/converted
+src/data/state.json
+README.md
+docs
+tests
+.github

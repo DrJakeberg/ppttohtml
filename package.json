@@ -1,0 +1,30 @@
+{
+  "name": "ppttohtml",
+  "version": "1.0.0",
+  "description": "Self-hosted presentation kiosk with admin upload and autoplay",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "NODE_ENV=development node --watch src/server.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "prepare:data": "node scripts/prepare-data.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "multer": "^1.4.5-lts.1",
+    "pdfjs-dist": "^4.7.76"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "eslint": "^9.16.0",
+    "supertest": "^7.1.1",
+    "vitest": "^2.1.8"
+  }
+}

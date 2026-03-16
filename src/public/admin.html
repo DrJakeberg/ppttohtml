@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <main class="admin-container">
+      <h1>Präsentations-Admin</h1>
+
+      <section class="panel">
+        <label for="token">Admin-Token</label>
+        <input id="token" type="password" autocomplete="off" />
+      </section>
+
+      <section class="panel">
+        <h2>Upload</h2>
+        <input id="presentationFile" type="file" accept=".pdf,.ppt,.pptx" />
+        <button id="uploadBtn" class="btn">Datei hochladen</button>
+      </section>
+
+      <section class="panel">
+        <h2>Autoplay</h2>
+        <label class="checkbox-row">
+          <input id="autoplayEnabled" type="checkbox" />
+          <span>Autoplay aktivieren</span>
+        </label>
+
+        <label for="autoplaySeconds">Sekunden bis zur nächsten Seite</label>
+        <input id="autoplaySeconds" type="number" min="1" max="3600" value="10" />
+
+        <button id="saveSettingsBtn" class="btn">Einstellungen speichern</button>
+      </section>
+
+      <section class="panel">
+        <h2>Status</h2>
+        <pre id="statusBox">Noch keine Aktion.</pre>
+      </section>
+    </main>
+
+    <script type="module" src="/assets/admin.js"></script>
+  </body>
+</html>

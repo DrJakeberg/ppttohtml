@@ -1,0 +1,99 @@
+:root {
+  font-family: Inter, Arial, sans-serif;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: #111;
+  color: #f1f1f1;
+}
+
+.viewer-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: #1a1a1a;
+  border-bottom: 1px solid #2f2f2f;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.viewer-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+canvas {
+  max-width: 100%;
+  max-height: calc(100vh - 48px);
+  background: #222;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn {
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #0b5ed7;
+}
+
+.admin-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  gap: 16px;
+}
+
+.panel {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+input[type='password'],
+input[type='number'],
+input[type='file'] {
+  background: #111;
+  border: 1px solid #333;
+  color: #f1f1f1;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.checkbox-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}

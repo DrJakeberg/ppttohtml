@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Präsentation</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body class="viewer-body">
+    <header class="toolbar">
+      <button id="fullscreenBtn" class="btn">Vollbild</button>
+      <div class="spacer"></div>
+      <button id="prevBtn" class="btn">Zurück</button>
+      <span id="pageInfo">Seite 0 / 0</span>
+      <button id="nextBtn" class="btn">Weiter</button>
+    </header>
+
+    <main id="viewerMain" class="viewer-main">
+      <div id="message">Lade Präsentation …</div>
+      <canvas id="pdfCanvas" class="hidden"></canvas>
+    </main>
+
+    <script type="module" src="/assets/viewer.js"></script>
+  </body>
+</html>

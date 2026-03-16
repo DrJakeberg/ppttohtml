@@ -1,0 +1,28 @@
+services:
+  presentation-web:
+    build: .
+    container_name: presentation-web
+    ports:
+      - "3000:3000"
+    environment:
+      - ADMIN_TOKEN=${ADMIN_TOKEN:-changeme}
+      - PORT=3000
+      - DATA_DIR=/app/data
+      - UPLOAD_DIR=/app/uploads
+      - CONVERTED_DIR=/app/converted
+    volumes:
+      - presentation_data:/app/data
+      - presentation_uploads:/app/uploads
+      - presentation_converted:/app/converted
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  presentation_data:
+  presentation_uploads:
+  presentation_converted:
