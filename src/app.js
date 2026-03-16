@@ -14,7 +14,7 @@ import {
 
 ensureDirectories();
 
-const { UPLOAD_DIR, CONVERTED_DIR } = getPaths();
+const { UPLOAD_DIR } = getPaths();
 
 const upload = multer({
   storage: multer.diskStorage({

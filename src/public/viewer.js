@@ -97,7 +97,7 @@ function startAutoplay() {
 
 function stopAutoplay() {
   if (autoplayTimer) {
-    clearInterval(autoplayTimer);
+    window.clearInterval(autoplayTimer);
     autoplayTimer = null;
   }
 }
